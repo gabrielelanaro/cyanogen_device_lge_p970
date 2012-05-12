@@ -511,10 +511,8 @@ on boot
     #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x14
 
 # Run sysinit
-    mkdir /data/debuggy_pre_sysinit
     exec /system/bin/sysinit
     
-    mkdir /data/debuggy_post_sysinit
     class_start default
 
 ## Daemon processes to be run by init.
