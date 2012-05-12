@@ -8,7 +8,7 @@ on init
 
 sysclktz 0
 
-loglevel 3
+loglevel 15
 
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "performance"
 
@@ -463,56 +463,58 @@ on boot
     write /sys/power/enable_off_mode 1
 
     # Enabling voltage off while idle
-    write /sys/power/voltage_off_while_idle 1
+    #write /sys/power/voltage_off_while_idle 1
 
     # Permissions for setting the DSP Frequency
-    chown media root /sys/power/dsp_freq
-    chown media system /sys/devices/platform/omap3isp/isp_reserve
+    #chown media root /sys/power/dsp_freq
+    #chown media system /sys/devices/platform/omap3isp/isp_reserve
 
 # Include extra init file
-    import /system/etc/init.local.rc
+    # import /system/etc/init.local.rc
 
 # gps permissions
-    chown system system /sys/devices/platform/hub_gps_gpio/poweron
-    chown system system /sys/devices/platform/hub_gps_gpio/reset
-    mkdir /data/gps
-    chmod 777 /data/gps
-    mkdir /data/gps/var
-    chmod 777 /data/gps/var
-    mkdir /data/gps/var/run
-    chmod 777 /data/gps/var/run
-    mkdir /data/gps/log
-    chmod 777 /data/gps/log
-    mkdir /data/cache
-    chmod 777 /data/cache
+    #chown system system /sys/devices/platform/hub_gps_gpio/poweron
+    #chown system system /sys/devices/platform/hub_gps_gpio/reset
+    #mkdir /data/gps
+    #chmod 777 /data/gps
+    #mkdir /data/gps/var
+    #chmod 777 /data/gps/var
+    #mkdir /data/gps/var/run
+    #chmod 777 /data/gps/var/run
+    #mkdir /data/gps/log
+    #chmod 777 /data/gps/log
+    #mkdir /data/cache
+    #chmod 777 /data/cache
 
     ## Torch perms
-    chown system camera /sys/class/leds/rt8515/brightness
-    chmod 0660 /sys/class/leds/rt8515/brightness
+    #chown system camera /sys/class/leds/rt8515/brightness
+    #chmod 0660 /sys/class/leds/rt8515/brightness
 
     ## liblights
-    chown system system /sys/class/leds/lcd-backlight/brightness
-    chown system system /sys/class/leds/lcd-backlight/onoff
-    chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/led_brightness
-    chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/led_onoff
-    chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/led_sync
-    chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/blink_enable
-    chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x06
-    chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x07
-    chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x0D
-    chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x0E
-    chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x10
-    chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x11
-    chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x03
-    chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x04
-    chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x09
-    chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x0A
-    chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x13
-    chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x14
+    #chown system system /sys/class/leds/lcd-backlight/brightness
+    #chown system system /sys/class/leds/lcd-backlight/onoff
+    #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/led_brightness
+    #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/led_onoff
+    #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/led_sync
+    #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/blink_enable
+    #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x06
+    #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x07
+    #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x0D
+    #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x0E
+    #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x10
+    #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x11
+    #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x03
+    #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x04
+    #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x09
+    #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x0A
+    #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x13
+    #chown system system /sys/devices/platform/i2c_omap.2/i2c-2/2-001a/0x14
 
 # Run sysinit
+    mkdir /data/debuggy_pre_sysinit
     exec /system/bin/sysinit
-
+    
+    mkdir /data/debuggy_post_sysinit
     class_start default
 
 ## Daemon processes to be run by init.
@@ -532,38 +534,40 @@ service console /system/bin/sh
     user shell
     group log
 
-on property:ro.secure=0
-    start console
+#on property:ro.secure=0
+#    start console
 
 # adbd is controlled by the persist.service.adb.enable system property
 service adbd /sbin/adbd
-    disabled
+   user root
+   group adb
+   critical
 
 # adbd on at boot in emulator
-on property:ro.kernel.qemu=1
-    start adbd
+#on property:ro.kernel.qemu=1
+#    start adbd
 
-on property:persist.service.adb.enable=1
-    start adbd
+#on property:persist.service.adb.enable=1
+#    start adbd
 
-on property:persist.service.adb.enable=0
-    stop adbd
+#on property:persist.service.adb.enable=0
+#    stop adbd
 
-on property:service.adb.tcp.port=5555
-    restart adbd
+#on property:service.adb.tcp.port=5555
+#    restart adbd
 
-on property:service.adb.tcp.port=-1
-    restart adbd
+#on property:service.adb.tcp.port=-1
+#    restart adbd
 
 service pvrsrvinit /system/bin/pvrsrvinit
         user root
         oneshot
 
 # load DSP firmware
-service baseimage /system/bin/cexec.out /system/lib/dsp/baseimage.dof
-    user root
-    group audio
-    oneshot
+#service baseimage /system/bin/cexec.out /system/lib/dsp/baseimage.dof
+#    user root
+#    group audio
+#    oneshot
 
 service fw3a /system/bin/fw3a_core --dbgport=6660 --dbgremote --dbgpath=/data/log/fw3A
     user root
